@@ -1,8 +1,11 @@
 // @ts-ignore
 import i18n from "../config/i18n";
 import * as React from "react";
+import { useTranslation } from "react-i18next";
 
 export const ChangeLocale = () => {
+  const { t } = useTranslation("change-locale");
+
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     i18n.changeLanguage(event.target.value);
   };
@@ -13,7 +16,7 @@ export const ChangeLocale = () => {
 
   return (
     <div style={{ textAlign: "right" }}>
-      <label htmlFor="selectLocale">Change locale: </label>
+      <label htmlFor="selectLocale">{t("changeLocale")} &nbsp; </label>
       <select
         onChange={handleChange}
         defaultValue={getCurrentLocale()}
